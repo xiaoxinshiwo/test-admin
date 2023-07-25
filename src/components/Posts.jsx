@@ -1,4 +1,4 @@
-import {List, Datagrid, TextField, ReferenceField, EditButton} from "react-admin";
+import {List, Datagrid, TextField, ReferenceField, EditButton, RichTextField} from "react-admin";
 
 export const PostList = () => (
     <List>
@@ -6,7 +6,7 @@ export const PostList = () => (
             <TextField source="id" />
             <ReferenceField source="userId" reference="users" />
             <TextField source="title" />
-            <TextField source="body" />
+            <RichTextField source="body"/>
             <EditButton />
         </Datagrid>
     </List>

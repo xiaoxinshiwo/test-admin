@@ -1,25 +1,24 @@
 import {
-    Button,
     CreateButton,
     Datagrid,
     EmailField,
     ExportButton,
-    FilterButton, FilterForm,
+    FilterButton,
+    FilterForm,
     List,
     TextField,
     TextInput,
     TopToolbar,
 } from 'react-admin';
-import IconEvent from '@mui/icons-material/Event';
-import { Stack } from '@mui/material';
+import {Stack} from '@mui/material';
 
 const postFilters = [
-    <TextInput key="name" label="姓名" source="name" />,
-    <TextInput key="phone" label="电话" source="phone"/>,
+    <TextInput key="name" label="姓名" source="name" alwaysOn/>,
+    <TextInput key="phone" label="电话" source="phone" alwaysOn/>,
 ];
 const ListToolbar = () => (
     <Stack direction="row" justifyContent="space-between">
-        <FilterForm filters={postFilters} />
+        <FilterForm filters={postFilters}/>
         <div>
             <FilterButton filters={postFilters} disableSaveQuery/>
         </div>
@@ -29,15 +28,6 @@ const ListActions = () => (
     <TopToolbar>
         <CreateButton/>
         <ExportButton/>
-        {/* Add your custom actions */}
-        <Button
-            onClick={() => {
-                alert('Your custom action');
-            }}
-            label="Show calendar"
-        >
-            <IconEvent/>
-        </Button>
     </TopToolbar>
 );
 
