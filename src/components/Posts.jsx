@@ -3,10 +3,10 @@ import {List, Datagrid, TextField, ReferenceField, EditButton, RichTextField} fr
 export const PostList = () => (
     <List>
         <Datagrid >
-            <TextField source="id" />
-            <ReferenceField source="userId" reference="users" />
-            <TextField source="title" />
-            <RichTextField source="body"/>
+            <TextField source="id" lable="id"/>
+            <ReferenceField source="userId" reference="users" label="用户id"/>
+            <TextField source="title" label="标题"/>
+            <RichTextField source="body" label="内容"/>
             <EditButton />
         </Datagrid>
     </List>
