@@ -11,8 +11,13 @@ import i18nProvider from './i18n/provider'
 export const App = () => {
     const authProvider = useAuthProvider();
     return <>
-        <Admin layout={MyLayout} loginPage={MyLoginPage} authProvider={authProvider} theme={defaultTheme}
-               i18nProvider={i18nProvider} dataProvider={dataProvider}>
+        <Admin
+            layout={MyLayout}
+            loginPage={MyLoginPage}
+            authProvider={authProvider}
+            theme={defaultTheme}
+            i18nProvider={i18nProvider}
+            dataProvider={dataProvider}>
             <Resource name="users" list={UserList} recordRepresentation="name"/>
             <Resource name="posts" list={PostList} edit={PostsEdit}/>
         </Admin>
