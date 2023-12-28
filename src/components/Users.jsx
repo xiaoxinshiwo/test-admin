@@ -10,20 +10,24 @@ import {
     TextInput,
     TopToolbar,
 } from 'react-admin';
-import {Stack} from '@mui/material';
+import { Stack } from '@mui/material';
 
-const postFilters = [
-    <TextInput key="name" label="姓名" source="name" alwaysOn/>,
-    <TextInput key="phone" label="电话" source="phone" alwaysOn/>,
-];
-const ListToolbar = () => (
-    <Stack direction="row" justifyContent="space-between">
-        <FilterForm filters={postFilters}/>
-        <div>
-            <FilterButton filters={postFilters} disableSaveQuery/>
-        </div>
-    </Stack>
-)
+
+const ListToolbar = () => {
+    const postFilters = [
+        <TextInput key="name" label="users.label.name" source="name" alwaysOn/>,
+        <TextInput key="phone" label="users.label.phone" source="phone" alwaysOn/>,
+    ];
+
+    return (
+        <Stack direction="row" justifyContent="space-between">
+            <FilterForm filters={postFilters}/>
+            <div>
+                <FilterButton filters={postFilters} disableSaveQuery/>
+            </div>
+        </Stack>
+    )
+}
 const ListActions = () => (
     <TopToolbar>
         <CreateButton/>
@@ -31,18 +35,21 @@ const ListActions = () => (
     </TopToolbar>
 );
 
-export const UserList = () => (
-    <List actions={<ListActions/>}>
-        <ListToolbar/>
-        <Datagrid rowClick="edit">
-            <TextField source="id"/>
-            <TextField source="name" label="姓名"/>
-            <TextField source="username" label="用户名"/>
-            <EmailField source="email" label="邮箱"/>
-            <TextField source="address.street" label="地址"/>
-            <TextField source="phone" label="电话"/>
-            <TextField source="website" label="网站"/>
-            <TextField source="company.name" label="公司"/>
-        </Datagrid>
-    </List>
-);
+export const UserList = () => {
+
+    return (
+        <List actions={<ListActions/>} title="users.title">
+            <ListToolbar/>
+            <Datagrid rowClick="edit">
+                <TextField source="id"/>
+                <TextField source="name" label="users.label.name"/>
+                <TextField source="username" label="users.label.userName"/>
+                <EmailField source="email" label="users.label.email"/>
+                <TextField source="address.street" label="users.label.address.street"/>
+                <TextField source="phone" label="users.label.phone"/>
+                <TextField source="website" label="users.label.website"/>
+                <TextField source="company.name" label="users.label.company.name"/>
+            </Datagrid>
+        </List>
+    )
+};

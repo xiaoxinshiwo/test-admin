@@ -1,13 +1,15 @@
-import {List, Datagrid, TextField, ReferenceField, EditButton, RichTextField} from "react-admin";
+import { Datagrid, EditButton, List, ReferenceField, RichTextField, TextField } from "react-admin";
 
-export const PostList = () => (
-    <List>
-        <Datagrid >
-            <TextField source="id" lable="id"/>
-            <ReferenceField source="userId" reference="users" label="用户id"/>
-            <TextField source="title" label="标题"/>
-            <RichTextField source="body" label="内容"/>
-            <EditButton />
-        </Datagrid>
-    </List>
-);
+export const PostList = () => {
+    return (
+        <List title="posts.title">
+            <Datagrid>
+                <TextField source="id" label="posts.label.id"/>
+                <ReferenceField source="userId" reference="users" label="posts.label.userId"/>
+                <TextField source="title" label="posts.label.title"/>
+                <RichTextField source="body" label="posts.label.body"/>
+                <EditButton/>
+            </Datagrid>
+        </List>
+    )
+};

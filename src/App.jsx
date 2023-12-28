@@ -1,22 +1,20 @@
-import {Admin, EditGuesser, Resource, useAuthProvider,} from "react-admin";
-import {dataProvider} from "./dataProvider";
-import {UserList} from "./components/Users";
-import {PostList} from "./components/Posts";
-
-import polyglotI18nProvider from 'ra-i18n-polyglot';
-import chineseMessages from '@haxqer/ra-language-chinese';
+import { Admin, Resource, useAuthProvider, } from "react-admin";
+import { dataProvider } from "./dataProvider";
+import { UserList } from "./components/Users";
+import { PostList } from "./components/Posts";
 import MyLoginPage from "./components/MyLoginPage";
 import MyLayout from "./components/MyLayout";
 import defaultTheme from "./components/MyTheme";
-import {PostsEdit} from "./components/PostsEdit";
-
-const i18nProvider = polyglotI18nProvider(() => chineseMessages, 'zh');
+import { PostsEdit } from "./components/PostsEdit";
+import i18nProvider from './i18n/provider'
 
 export const App = () => {
     const authProvider = useAuthProvider();
-    return <Admin layout={MyLayout} loginPage={MyLoginPage} authProvider={authProvider} theme={defaultTheme}
-                  i18nProvider={i18nProvider} dataProvider={dataProvider}>
-        <Resource name="users"  list={UserList} recordRepresentation="name"/>
-        <Resource name="posts" list={PostList} edit={PostsEdit}/>
-    </Admin>
+    return <>
+        <Admin layout={MyLayout} loginPage={MyLoginPage} authProvider={authProvider} theme={defaultTheme}
+               i18nProvider={i18nProvider} dataProvider={dataProvider}>
+            <Resource name="users" list={UserList} recordRepresentation="name"/>
+            <Resource name="posts" list={PostList} edit={PostsEdit}/>
+        </Admin>
+    </>
 };
